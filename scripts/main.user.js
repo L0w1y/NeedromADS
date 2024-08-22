@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            NeedromAds
 // @namespace       https://github.com/L0w1y
-// @version         1.0
+// @version         1.1
 // @description     Block specific jQuery Adblock detector scripts, to download intermediately
 // @author          Sergey Lowly
 // @match           https://www.needrom.com/download/*
@@ -15,7 +15,6 @@
 (function() {
     'use strict';
 
-    // URLs patterns to block
     const blockUrls = [
         /https:\/\/cdn\.needrom\.com\/colorbox\/home\/jquery\.colorbox.*\.min\.js/,
         /https:\/\/cdn\.needrom\.com\/colorbox\/server\/jquery\.colorbox.*\.min\.js/
