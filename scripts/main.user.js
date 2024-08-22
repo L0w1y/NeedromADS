@@ -15,14 +15,17 @@
 (function() {
     'use strict';
 
+    // URLs patterns to block
     const blockUrls = [
         /https:\/\/cdn\.needrom\.com\/colorbox\/home\/jquery\.colorbox.*\.min\.js/,
         /https:\/\/cdn\.needrom\.com\/colorbox\/server\/jquery\.colorbox.*\.min\.js/
     ];
 
+    const isBlockedScript = (url) => blockUrls.some(pattern => pattern.test(url));
+
     const originalOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function(method, url) {
-        if (blockUrls.some(pattern => pattern.test(url))) {
+        if (isBlockedScript(url)) {
             console.log(`Blocked: ${url}`);
             return;
         }
@@ -31,10 +34,24 @@
 
     const originalFetch = window.fetch;
     window.fetch = function(url, options) {
-        if (blockUrls.some(pattern => pattern.test(url.toString()))) {
+        if (isBlockedScript(url.toString())) {
             console.log(`Blocked: ${url}`);
             return Promise.resolve(new Response(null, {status: 204, statusText: 'No Content'}));
         }
         return originalFetch.apply(this, arguments);
     };
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.tagName === 'SCRIPT' && node.src && isBlockedScript(node.src)) {
+                    console.log(`Blocked: ${node.src}`);
+                    node.parentElement.removeChild(node);
+                }
+            });
+        });
+    });
+
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
 })();
