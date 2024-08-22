@@ -8,4 +8,4 @@ If you have installed [Tampermonkey](https://www.tampermonkey.net/) - you can ad
 
 # How it works
 
-We're just checking to see if there are requests that scripts can send us that can check if we have an advertising ID. However, on edge, mozilla (Tor edition) browsers, the check is incorrect, and even if you do not have an Adblocker, you receive a warning that you cannot download resources, since you have Adblocker enabled. the script inside itself changes the content along with a link to the message "Adblocker detected, please disable it".
+We're just checking to see if there are requests that scripts can send us that can check if we have an advertising ID. However, on edge, mozilla (Tor edition) browsers, the check is incorrect, and even if you do not have an Adblocker, you receive a warning that you cannot download resources, since you have Adblocker enabled. the script inside itself changes the content along with a link to the message, what looks like: "Adblocker detected, please disable it".
