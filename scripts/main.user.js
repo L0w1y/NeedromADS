@@ -8,8 +8,8 @@
 // @match           https://www.needrom.com/server/download.php?*
 // @grant           none
 // @run-at          document-start
-// @updateURL       https://github.com/NeedromAdblock/scripts/raw/main/main.user.js
-// @downloadURL     https://github.com/NeedromAdblock/scripts/raw/main/main.user.js
+// @updateURL       https://raw.githubusercontent.com/L0w1y/NeedromADS/main/scripts/main.user.js
+// @downloadURL     https://raw.githubusercontent.com/L0w1y/NeedromADS/main/scripts/main.user.js
 // ==/UserScript==
 
 (function() {

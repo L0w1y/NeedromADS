@@ -4,7 +4,7 @@ NeedromADS is an easy solution to download ROM, without having to disable Adbloc
 
 # Installation
 
-If you have installed [Tampermonkey](https://www.tampermonkey.net/) - you can add script by clicking [here](scripts/raw/main/main.user.js)!
+If you have installed [Tampermonkey](https://www.tampermonkey.net/) - you can add script by clicking [here](https://raw.githubusercontent.com/L0w1y/NeedromADS/main/scripts/main.user.js)!
 
 # How it works
 
